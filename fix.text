@@ -1,0 +1,8 @@
+fix this issue: Module not found: Can't resolve '@heroicons/react/20/solid'
+  20 | import { useS3Upload } from "next-s3-upload";
+  21 | import UploadIcon from "@/components/icons/upload-icon";
+> 22 | import { XCircleIcon } from "@heroicons/react/20/solid";
+     | ^
+  23 | import { MODELS, SUGGESTED_PROMPTS } from "@/lib/constants";
+  24 |
+  25 | export default function Home() {

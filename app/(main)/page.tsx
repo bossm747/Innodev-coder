@@ -19,7 +19,7 @@ import { Context } from "./providers";
 import Header from "@/components/header";
 import { useS3Upload } from "next-s3-upload";
 import UploadIcon from "@/components/icons/upload-icon";
-import { XCircleIcon } from "@heroicons/react/20/solid";
+import { XCircleIcon } from "@heroicons/react/24/outline";
 import { MODELS, SUGGESTED_PROMPTS } from "@/lib/constants";
 
 export default function Home() {
