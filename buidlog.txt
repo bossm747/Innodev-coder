@@ -1,0 +1,15 @@
+here is the log error: ERROR: failed to solve: process
+"/bin/sh -c npm ci" did not complete successfully: exit code: 1
+####################################
+######
+### Error
+### Sat, 17 May 2025 02:17:38 GMT
+#########:##:##:#####￾##:##:##:###
+*###
+##
+Command failed with exit code 1: docker buildx build --network host - f
+/etc/easypanel/projects/innovatehub/ innocoder/code/Dockerfile -t easypanel/innovatehub/innocoder --label 'keep=true' --no-cache --build-arg
+'GIT_SHA=099aecd888e7d5a17064c39a75a
+f99d8fdc7818f'
+/etc/easypanel/projects/innovatehub/ innocoder/code/
+Making a request to this
