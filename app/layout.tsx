@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import PlausibleProvider from "next-plausible";
 import "./globals.css";
+import "./layout.css";
 
 let title = "InnoDEV Coder by InnovatehubPH";
 let description = "InnoDEV Coder by InnovatehubPH";
