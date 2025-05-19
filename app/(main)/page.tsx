@@ -102,23 +102,45 @@ export default function Home() {
                   screenshotUrl,
                 );
 
-                const streamPromise = fetch(
-                  "/api/get-next-completion-stream-promise",
-                  {
-                    method: "POST",
-                    body: JSON.stringify({ messageId: lastMessageId, model }),
-                  },
-                ).then((res) => {
-                  if (!res.body) {
-                    throw new Error("No body on response");
-                  }
-                  return res.body;
-                });
+                try {
+                  const streamPromise = fetch(
+                    "/api/get-next-completion-stream-promise",
+                    {
+                      method: "POST",
+                      headers: {
+                        "Content-Type": "application/json"
+                      },
+                      body: JSON.stringify({ messageId: lastMessageId, model }),
+                    },
+                  ).then(async (res) => {
+                    if (!res.ok) {
+                      // Try to parse error message from response
+                      let errorMessage = "Failed to get completion stream";
+                      try {
+                        const errorData = await res.json();
+                        errorMessage = errorData.error || errorMessage;
+                      } catch (e) {
+                        // If we can't parse JSON, use status text
+                        errorMessage = `${res.status}: ${res.statusText}`;
+                      }
+                      throw new Error(errorMessage);
+                    }
+                    
+                    if (!res.body) {
+                      throw new Error("No body on response");
+                    }
+                    return res.body;
+                  });
 
-                startTransition(() => {
-                  setStreamPromise(streamPromise);
-                  router.push(`/chats/${chatId}`);
-                });
+                  startTransition(() => {
+                    setStreamPromise(streamPromise);
+                    router.push(`/chats/${chatId}`);
+                  });
+                } catch (error) {
+                  console.error("Error getting completion stream:", error);
+                  // Show error to user (you could use a toast notification here)
+                  alert(`Error: ${error instanceof Error ? error.message : "Failed to process request"}`);
+                }
               });
             }}
           >
@@ -171,7 +193,7 @@ export default function Home() {
                       required
                       name="prompt"
                       rows={1}
-                      className="peer absolute inset-0 w-full resize-none bg-transparent p-3 placeholder-gray-500 focus-visible:outline-none disabled:opacity-50"
+                      className="peer absolute inset-0 w-full resize-none bg-transparent p-3 placeholder-black focus-visible:outline-none disabled:opacity-50"
                       value={prompt}
                       onChange={(e) => setPrompt(e.target.value)}
                       onKeyDown={(event) => {
@@ -325,7 +347,7 @@ export default function Home() {
                     key={v.title}
                     type="button"
                     onClick={() => setPrompt(v.description)}
-                    className="rounded bg-gray-200 px-2.5 py-1.5 text-xs hover:bg-gray-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-300"
+                    className="rounded bg-gray-200 px-2.5 py-1.5 text-xs text-black hover:bg-gray-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-300"
                   >
                     {v.title}
                   </button>
