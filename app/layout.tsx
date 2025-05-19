@@ -42,8 +42,9 @@ export default function RootLayout({
       <head>
         <PlausibleProvider domain="innodevcoder.com" />
       </head>
-
-      {children}
+      <body className="h-full">
+        {children}
+      </body>
     </html>
   );
 }
