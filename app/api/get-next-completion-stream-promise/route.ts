@@ -41,9 +41,9 @@ export async function POST(req: Request) {
     options.baseURL = "https://together.helicone.ai/v1";
     options.defaultHeaders = {
       "Helicone-Auth": `Bearer ${process.env.HELICONE_API_KEY}`,
-      "Helicone-Property-appname": "Innodev-coder",
+      "Helicone-Property-appname": "InnoDEV Coder by InnovatehubPH",
       "Helicone-Session-Id": message.chatId,
-      "Helicone-Session-Name": "Innodev-coder Chat",
+      "Helicone-Session-Name": "InnoDEV Coder by InnovatehubPH Chat",
     };
   }
 

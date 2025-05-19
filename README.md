@@ -1,6 +1,6 @@
 <a href="https://www.llamacoder.io">
-  <img alt="Innodev-coder" src="./public/og-image.png">
-  <h1 align="center">Innodev-coder</h1>
+  <img alt="InnoDEV Coder by InnovatehubPH" src="./public/og-image.png">
+  <h1 align="center">InnoDEV Coder by InnovatehubPH</h1>
 </a>
 
 <p align="center">
