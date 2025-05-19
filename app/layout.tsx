@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import PlausibleProvider from "next-plausible";
 import "./globals.css";
 
-let title = "Llama Coder – AI Code Generator";
-let description = "Generate your next app with Llama 3.1 405B";
-let url = "https://llamacoder.io/";
-let ogimage = "https://llamacoder.io/og-image.png";
-let sitename = "llamacoder.io";
+let title = "InnoDEV Coder by InnovatehubPH";
+let description = "InnoDEV Coder by InnovatehubPH";
+let url = "https://innodevcoder.com/";
+let ogimage = "https://innodevcoder.com/og-image.png";
+let sitename = "innodevcoder.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(url),
@@ -40,7 +40,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full">
       <head>
-        <PlausibleProvider domain="llamacoder.io" />
+        <PlausibleProvider domain="innodevcoder.com" />
       </head>
 
       {children}
